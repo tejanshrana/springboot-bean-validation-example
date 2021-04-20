@@ -1,13 +1,13 @@
 package com.blog.demo.model;
 
 import com.blog.demo.model.validators.Age;
-import com.blog.demo.model.validators.NewEmployee;
+import com.blog.demo.model.validators.AllEmployees;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Data
@@ -16,16 +16,16 @@ import java.time.LocalDate;
 @Builder
 public class Employee {
 
-    @NotNull
+    @NotBlank(groups = AllEmployees.class)
     private String firstName;
 
-    @NotNull
+    @NotBlank(groups = AllEmployees.class)
     private String lastName;
 
-    @Age(min = 18L, max = 65L)
+    @Age(min = 18L, max = 65L, groups = AllEmployees.class)
     private LocalDate dateOfBirth;
 
-    @NotNull(groups = NewEmployee.class)
+    @NotBlank
     private String department;
 
 }

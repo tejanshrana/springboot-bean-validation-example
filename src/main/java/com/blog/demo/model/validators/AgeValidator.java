@@ -20,15 +20,15 @@ public class AgeValidator implements ConstraintValidator<Age, LocalDate> {
     @Override
     public boolean isValid(LocalDate localDate, ConstraintValidatorContext constraintValidatorContext) {
         return Objects.nonNull(localDate) &&
-                isGreaterThanOrEqualToMin(localDate) &&
-                isLessThanOrEqualToMax(localDate);
+                isGreaterThan(localDate) &&
+                isLessThan(localDate);
     }
 
-    private boolean isLessThanOrEqualToMax(LocalDate localDate) {
-        return ChronoUnit.YEARS.between(localDate, LocalDate.now()) <= maxAge;
+    private boolean isLessThan(LocalDate localDate) {
+        return ChronoUnit.YEARS.between(localDate, LocalDate.now()) < maxAge;
     }
 
-    private boolean isGreaterThanOrEqualToMin(LocalDate localDate) {
+    private boolean isGreaterThan(LocalDate localDate) {
         return ChronoUnit.YEARS.between(localDate, LocalDate.now()) >= minAge;
     }
 }

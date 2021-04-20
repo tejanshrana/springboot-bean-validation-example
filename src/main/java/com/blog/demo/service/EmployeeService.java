@@ -1,7 +1,7 @@
 package com.blog.demo.service;
 
 import com.blog.demo.model.Employee;
-import com.blog.demo.model.validators.NewEmployee;
+import com.blog.demo.model.validators.AllEmployees;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -11,7 +11,7 @@ import javax.validation.Valid;
 @Validated
 public class EmployeeService {
 
-    @Validated(NewEmployee.class)
+    @Validated(AllEmployees.class)
     public void addEmployee(@Valid Employee employee) {
         //do something
 

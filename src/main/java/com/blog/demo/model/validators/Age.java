@@ -2,7 +2,6 @@ package com.blog.demo.model.validators;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.groups.Default;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
